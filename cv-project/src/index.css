@@ -3,6 +3,9 @@
 @tailwind utilities;
 
 
+
+
+
 /* Test root properties with base colors, modify in the tailwind config as well*/
 /* Make sure colors are converted from hex colors to rgb */
 /* Choose to work with either App.css or index.css for tailwind config*/
