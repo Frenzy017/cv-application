@@ -2,9 +2,64 @@
 @tailwind components;
 @tailwind utilities;
 
+*,
+html,
+body {
+    @apply box-border;
+}
+
+/*#root {*/
+/*    @apply h-screen w-screen;*/
+/*    */
+/*}*/
+
+.bs-font {
+    font-family: "Roboto Light", serif;
+}
+
+.txt-clr {
+    color: #0c0e0c
+}
+
+.bg-clr {
+    color: #e4e7e4
+}
+
+.main-clr {
+    color: #383239
+}
+
+.sec-clr {
+    color: #cfc9cd
+}
+
+.accent-clr {
+    color: #64606c
+}
 
 
 
+/* Dark mode on*/
+
+.dark-txt-clr {
+    color: #e4e7e4
+}
+
+.dark-bg-clr {
+    color: #0c0e0c
+}
+
+.dark-main-clr {
+    color: #383239
+}
+
+.dark-sec-clr {
+    color: #030203
+}
+
+.dark-accent-clr {
+    color: #b1aeb7
+}
 
 /* Test root properties with base colors, modify in the tailwind config as well*/
 /* Make sure colors are converted from hex colors to rgb */
