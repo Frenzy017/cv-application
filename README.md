@@ -1,2 +1,2 @@
 # cv-application
-Creating a CV Application using TypeScript / React / Tailwind 
+Creating a CV Application using React JS and Tailwind 
