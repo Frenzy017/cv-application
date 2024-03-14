@@ -5,7 +5,7 @@
 @layer base {
     body {
         @apply pt-0;
-        @apply mr-1 mt-1 mb-1 ml-1;
+        @apply mr-5 mt-5 mb-5 ml-5;
         @apply bg-gray-200;
     }
 }
