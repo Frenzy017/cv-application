@@ -2,9 +2,15 @@
 
 // import Input from "./Input"
 
-export default function Work({ title, companyName, jobTitle, workStartDate, workEndDate, achievements }) {
-
-
+export default function WorkSection
+    (
+        { title, companyName, jobTitle, achievements,
+            workStartDate, workEndDate,
+            jobChangeTitle, handleJobTitleChange,
+            companyTitle, handleCompanyTitleChange,
+            achievementsChange, handleAchievementsChange, setAchievementList, achievementList, nextId
+        }
+    ) {
 
     return (
         <div>
@@ -17,14 +23,14 @@ export default function Work({ title, companyName, jobTitle, workStartDate, work
                         <div className="flex justify-start gap-4">
                             <div>{jobTitle}
                                 <input
-                                    type="text" placeholder="Intern Audit"
+                                    type="text" placeholder="Intern Audit" value={jobChangeTitle} onChange={handleJobTitleChange}
                                     className="flex pl-1 rounded-md max-w-44 text-black
                                     focus:border-black border-2 border-solid focus:outline-none place"
                                 />
                             </div>
                             <div>{companyName}
                                 <input
-                                    type="text" placeholder="Morgan Stanley"
+                                    type="text" placeholder="Morgan Stanley" value={companyTitle} onChange={handleCompanyTitleChange}
                                     className="flex pl-1 rounded-md max-w-44 text-black
                                     focus:border-black border-2 border-solid focus:outline-none place"
                                 />
@@ -33,9 +39,16 @@ export default function Work({ title, companyName, jobTitle, workStartDate, work
 
                         <div className="flex flex-col pt-3">{achievements}
                             <input
-                                type="text" placeholder="Signed up more than 200 enterprise clients"
+                                type="text" placeholder="Signed up more than 200 enterprise clients" value={achievementsChange} onChange={handleAchievementsChange}
                                 className="pl-1 flex-grow-1 rounded-md min-w-full text-black focus:border-black border-2 border-solid focus:outline-none place" />
-                            <button className="self-end absolute pt-6 pr-1">➕</button>
+                            <button className="self-end absolute pt-6 pr-1" onClick={(e) => {
+                                e.preventDefault;
+
+                                setAchievementList([
+                                    ...achievementList,
+                                    { id: nextId++, name: achievementsChange }
+                                ]);
+                            }}>➕</button>
                         </div>
 
 

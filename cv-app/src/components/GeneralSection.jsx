@@ -1,10 +1,17 @@
 /* eslint-disable react/prop-types */
 
+
+
 // import Input from "./Input"
 
-export default function GeneralSection({ title, name, lastName, email, phoneNumber }) {
-
-
+export default function GeneralSection
+    (
+        {
+            title, name, lastNameDefault, email, phoneNumber,
+            firstNameChange, handleFirstNameChange, lastNameChange, handleLastNameChange,
+            emailChange, handleEmailChange, phoneChange, handlePhoneChange,
+        }
+    ) {
 
     return (
         <div>
@@ -15,14 +22,14 @@ export default function GeneralSection({ title, name, lastName, email, phoneNumb
                         <div className="flex justify-start gap-4">
                             <div>{name}
                                 <input
-                                    type="text" placeholder="Jensen"
+                                    type="text" placeholder="Jensen" value={firstNameChange} onChange={handleFirstNameChange}
                                     className="flex pl-1 rounded-md max-w-44 text-black
                                     focus:border-black border-2 border-solid focus:outline-none place"
                                 />
                             </div>
-                            <div>{lastName}
+                            <div>{lastNameDefault}
                                 <input
-                                    type="text" placeholder="Ackles"
+                                    type="text" placeholder="Ackles" value={lastNameChange} onChange={handleLastNameChange}
                                     className="flex pl-1 rounded-md max-w-44 text-black
                                     focus:border-black border-2 border-solid focus:outline-none place"
                                 />
@@ -32,14 +39,14 @@ export default function GeneralSection({ title, name, lastName, email, phoneNumb
                         <div className="flex gap-4">
                             <div>{email}
                                 <input
-                                    type="text" placeholder="jensen7@gmail.com"
+                                    type="text" placeholder="jensen7@gmail.com" value={emailChange} onChange={handleEmailChange}
                                     className="flex pl-1 rounded-md max-w-44 text-black
                                     focus:border-black border-2 border-solid focus:outline-none place"
                                 />
                             </div>
                             <div>{phoneNumber}
                                 <input
-                                    type="text" placeholder="+35954860761"
+                                    type="text" placeholder="+14433480953" value={phoneChange} onChange={handlePhoneChange}
                                     className="flex pl-1 rounded-md max-w-44 text-black
                                     focus:border-black border-2 border-solid focus:outline-none place"
                                 />
