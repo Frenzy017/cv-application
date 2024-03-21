@@ -1,9 +1,22 @@
-export default function CvSection() {
-    return (
+/* eslint-disable react/prop-types */
 
-        <div className="grid">
+
+export default function CvSection
+    (
+        {
+            firstNameChange, lastNameChange, emailChange, phoneChange,
+            jobChangeTitle, companyTitle, achievementList
+        }
+    ) {
+
+
+
+
+
+    return (
+        <div className="grid h-fit">
             <section className="
-            flex flex-col max-w-4xl min-h-screens h-1/1 mr-8
+            flex flex-col max-w-4xl mr-8
             bg-slate-100 border-4 border-black
             shadow-2xl shadow-slate-700
             "
@@ -29,13 +42,13 @@ export default function CvSection() {
                                 <div className="w-40 h-0.5 bg-white"></div>
                                 <div className="p-1 font-roboto text-base">Email
                                     <div className="text-sm">
-                                        yahoo@gmail.com
+                                        {emailChange ? emailChange : "JenAckles17@gmail.com"}
                                     </div>
                                 </div>
 
                                 <div className="p-1">Phone number
                                     <div>
-                                        +48123921033
+                                        {phoneChange ? phoneChange : "+14433480953"}
                                     </div>
                                 </div>
                             </div>
@@ -62,8 +75,8 @@ export default function CvSection() {
 
                     <div className="col-span-3">
                         <div className="flex gap-3 p-8">
-                            <span className="text-5xl  text-slate-700 font-open-sans font-semibold">John</span>
-                            <span className="text-5xl text-slate-700 font-open-sans font-normal">Ackles</span>
+                            <span className="text-5xl  text-slate-700 font-open-sans font-semibold"> {firstNameChange ? firstNameChange : "Jensen"}</span>
+                            <span className="text-5xl text-slate-700 font-open-sans font-normal">{lastNameChange ? lastNameChange : "Ackles"}</span>
                         </div>
                         <div className="text-start text-nowrap font-open-sans text-bases pl-8">Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus voluptatibus ab hic ipsam, harum in ad porro distinctio temporibus voluptatum animi necessitatibus molestias accusamus fugit omnis minima voluptates? Provident, alias.</div>
 
@@ -72,15 +85,16 @@ export default function CvSection() {
                             <div className="w-full h-0.5 bg-black"></div>
                             <form>
                                 <div className="text-lg font-semibold">2019 - 2024</div>
-                                <div className="text-lg">Amazon</div>
-                                <div className="text-lg font-bold">AWS Cloud Engineer</div>
-
+                                <div className="text-lg">{companyTitle ? companyTitle : "Amazon"}</div>
+                                <div className="text-lg font-bold">{jobChangeTitle ? jobChangeTitle : "AWS Cloud Engineer"}</div>
                                 <div className="m-1 text-lg">
                                     <span>Achievements / Tasks</span>
 
-                                    <li className="pl-4">
-                                        <span>Skilled in core AWS services like EC2, S3, RDS, VPC, IAM, Lambda</span>
-                                    </li>
+                                    <ul>
+                                        {achievementList.map(achievement => {
+                                            <li key={achievement.id}>{achievement.name}</li>
+                                        })}
+                                    </ul>
 
                                     <li className="pl-4">
                                         <span>Capable of optimizing AWS resources for performance and cost efficiency</span>
@@ -105,25 +119,19 @@ export default function CvSection() {
                                     <span>Achievements / Tasks</span>
 
                                     <li className="pl-4">
-                                        <span>Achieved Dean's List recognition for outstanding academic performance</span>
+                                        <span>Capable of optimizing AWS resources for performance and cost efficiency</span>
                                     </li>
 
                                     <li className="pl-4">
-                                        <span>Received a scholarship for academic excellence in AI</span>
+                                        <span>Capable of optimizing AWS resources for performance and cost efficiency</span>
                                     </li>
 
-                                    <li className="pl-4">
-                                        <span>Received recognition for outstanding performance in Calculus II</span>
-                                    </li>
+
                                 </div>
+
                             </form>
                         </div>
-
-
-
                     </div>
-
-
                 </div>
             </section>
         </div>
