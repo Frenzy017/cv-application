@@ -5,7 +5,8 @@ export default function CvSection
     (
         {
             firstNameChange, lastNameChange, emailChange, phoneChange,
-            jobChangeTitle, companyTitle, achievementList
+            jobChangeTitle, companyTitle, achievementList, studyTitle, schoolTitle,
+            educationAchievementList, dateStartJob, dateEndJob, dateStartStudy, dateEndStudy
         }
     ) {
 
@@ -78,31 +79,26 @@ export default function CvSection
                             <span className="text-5xl  text-slate-700 font-open-sans font-semibold"> {firstNameChange ? firstNameChange : "Jensen"}</span>
                             <span className="text-5xl text-slate-700 font-open-sans font-normal">{lastNameChange ? lastNameChange : "Ackles"}</span>
                         </div>
-                        <div className="text-start text-nowrap font-open-sans text-bases pl-8">Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus voluptatibus ab hic ipsam, harum in ad porro distinctio temporibus voluptatum animi necessitatibus molestias accusamus fugit omnis minima voluptates? Provident, alias.</div>
+                        <div className="text-start text-wrap font-open-sans text-bases pl-8">Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus voluptatibus ab hic ipsam, harum in ad porro distinctio temporibus voluptatum animi necessitatibus molestias accusamus fugit omnis minima voluptates? Provident, alias.</div>
 
 
                         <div className="flex flex-col gap-1.5 text-3xl p-8 text-slate-700 font-open-sans">Work Experience
                             <div className="w-full h-0.5 bg-black"></div>
                             <form>
-                                <div className="text-lg font-semibold">2019 - 2024</div>
+                                <div className="text-lg font-semibold">{dateStartJob ? dateStartJob : "2020.02.03"}  -  {dateEndJob ? dateEndJob : "2024.02.03"}</div>
                                 <div className="text-lg">{companyTitle ? companyTitle : "Amazon"}</div>
                                 <div className="text-lg font-bold">{jobChangeTitle ? jobChangeTitle : "AWS Cloud Engineer"}</div>
                                 <div className="m-1 text-lg">
                                     <span>Achievements / Tasks</span>
 
-                                    <ul>
-                                        {achievementList.map(achievement => {
-                                            <li key={achievement.id}>{achievement.name}</li>
-                                        })}
-                                    </ul>
+                                    <div className="pl-4">
 
-                                    <li className="pl-4">
-                                        <span>Capable of optimizing AWS resources for performance and cost efficiency</span>
-                                    </li>
-
-                                    <li className="pl-4">
-                                        <span>Comfortable with containerization technologies like Docker and Kubernetes on AWS</span>
-                                    </li>
+                                        {achievementList.length !== 0 ? achievementList.map(achievement => <li key={achievement.id}>{achievement.name}</li>)
+                                            : <span>
+                                                <li>Capable of optimizing AWS resources for performance and cost efficiency</li>
+                                            </span>
+                                        }
+                                    </div>
                                 </div>
                             </form>
                         </div>
@@ -111,22 +107,20 @@ export default function CvSection
                         <div className="flex flex-col gap-1.5 text-3xl p-8 text-slate-700 font-open-sans">Educational Experience
                             <div className="w-full h-0.5 bg-black"></div>
                             <form>
-                                <div className="text-lg font-semibold">2019 - 2024</div>
-                                <div className="text-lg">Hamburg University</div>
-                                <div className="text-lg font-bold">Bachelor of Science</div>
+                                <div className="text-lg font-semibold">{dateStartStudy ? dateStartStudy : "2015.02.03"}  -  {dateEndStudy ? dateEndStudy : "2019.02.03"}</div>
+                                <div className="text-lg"> {schoolTitle ? schoolTitle : "Hamburg University"}</div>
+                                <div className="text-lg font-bold"> {studyTitle ? studyTitle : "Bachelor of Science"}</div>
 
                                 <div className="m-1 text-lg">
                                     <span>Achievements / Tasks</span>
 
-                                    <li className="pl-4">
-                                        <span>Capable of optimizing AWS resources for performance and cost efficiency</span>
-                                    </li>
-
-                                    <li className="pl-4">
-                                        <span>Capable of optimizing AWS resources for performance and cost efficiency</span>
-                                    </li>
-
-
+                                    <div className="pl-4">
+                                        {educationAchievementList.length !== 0 ? educationAchievementList.map(achievement => <li key={achievement.id}>{achievement.name}</li>)
+                                            : <span>
+                                                <li>Comfortable with containerization technologies like Docker and Kubernetes on AWS</li>
+                                            </span>
+                                        }
+                                    </div>
                                 </div>
 
                             </form>
