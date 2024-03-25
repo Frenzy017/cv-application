@@ -2,11 +2,17 @@
 
 // import Input from "./Input"
 
-export default function EducationSection({ title, name, titleOfStudy, achievements, studyStartDate, studyEndDate }) {
-    
-    
-    
-    
+export default function EducationSection
+    (
+        { title, name, titleOfStudy, achievements, studyStartDate, studyEndDate,
+            handleStudyTitleChange, studyTitle, handleSchoolTitleChange, schoolTitle,
+            nextId, educationAchievementInput, setEducationAchievementInput, handleEducationAchievementChange,
+            setEducationAchievementList, educationAchievementList, dateStartStudy, handleDateStartStudyChange,
+            dateEndStudy, handleDateEndStudyChange
+
+        }
+    ) {
+
     return (
         <div>
             <div>
@@ -17,14 +23,14 @@ export default function EducationSection({ title, name, titleOfStudy, achievemen
                         <div className="flex justify-start gap-4">
                             <div>{titleOfStudy}
                                 <input
-                                    type="text" placeholder="Bachelor of Science"
+                                    type="text" placeholder="Bachelor of Science" value={studyTitle} onChange={handleStudyTitleChange}
                                     className="flex pl-1 rounded-md max-w-44 text-black
                                     focus:border-black border-2 border-solid focus:outline-none place"
                                 />
                             </div>
                             <div>{name}
                                 <input
-                                    type="text" placeholder="Hamburg University"
+                                    type="text" placeholder="Hamburg University" value={schoolTitle} onChange={handleSchoolTitleChange}
                                     className="flex pl-1 rounded-md max-w-44 text-black
                                     focus:border-black border-2 border-solid focus:outline-none place"
                                 />
@@ -34,10 +40,29 @@ export default function EducationSection({ title, name, titleOfStudy, achievemen
                         <div className="flex flex-col pt-3">{achievements}
                             <input
                                 type="text"
-                                placeholder="Graduated with 4.0 GPA"
+                                placeholder="Graduated with 4.0 GPA" value={educationAchievementInput} onChange={handleEducationAchievementChange}
                                 className="pl-1 flex-grow-1 rounded-md min-w-full text-black focus:border-black border-2 border-solid focus:outline-none place" />
-                            <button className="self-end absolute pt-6 pr-1">➕</button>
-                            
+                            <button className="self-end absolute pt-6 pr-1" onClick={(e) => {
+                                e.preventDefault();
+
+                                if (educationAchievementInput === "") {
+                                    alert("Please type something first!");
+                                    return;
+                                }
+
+                                // Creating an object for achievements 
+                                // achievementsChange is the input value 
+                                // We spread syntax the object to create new values
+
+                                setEducationAchievementList([
+                                    ...educationAchievementList,
+                                    { id: nextId++, name: educationAchievementInput }
+                                ]);
+
+                                // Resetting input value after an achievement is added
+                                setEducationAchievementInput("");
+                            }}>➕</button>
+
                         </div>
 
 
@@ -45,14 +70,14 @@ export default function EducationSection({ title, name, titleOfStudy, achievemen
                         <div className="flex justify-center items-center pt-1 gap-4">
                             <div className="text-center">{studyStartDate}
                                 <input
-                                    type="date"
+                                    type="date" value={dateStartStudy} onChange={handleDateStartStudyChange}
                                     className="flex pl-1 rounded-md max-w-44 text-black focus:border-black border-2 border-solid focus:outline-none place" />
                             </div>
 
 
                             <div className="text-center">{studyEndDate}
                                 <input
-                                    type="date"
+                                    type="date" value={dateEndStudy} onChange={handleDateEndStudyChange}
                                     className="flex pl-1 rounded-md max-w-44 text-black focus:border-black border-2 border-solid focus:outline-none place" />
                             </div>
                         </div>
