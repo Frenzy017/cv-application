@@ -8,7 +8,7 @@ import GeneralSection from "./components/GeneralSection"
 import WorkSection from "./components/WorkSection"
 
 
-
+let nextId = 0;
 
 function App() {
 
@@ -20,13 +20,22 @@ function App() {
   const [phoneChange, setPhoneChange] = useState("");
   const [jobChangeTitle, setJobChangeTitle] = useState("");
   const [companyTitle, setCompanyTitle] = useState("");
+
   const [achievementsChange, setAchievementsChange] = useState("");
   const [achievementList, setAchievementList] = useState([]);
 
 
-  let nextId = 0;
+  const [educationAchievementInput, setEducationAchievementInput] = useState("");
+  const [educationAchievementList, setEducationAchievementList] = useState([]);
 
+  const [studyTitle, setStudyTitle] = useState("");
+  const [schoolTitle, setSchoolTitle] = useState("");
 
+  const [dateStartJob, setDateStartJob] = useState("");
+  const [dateEndJob, setDateEndJob] = useState("");
+
+  const [dateStartStudy, setDateStartStudy] = useState("");
+  const [dateEndStudy, setDateEndStudy] = useState("");
 
   // LOGIC TO IMPLEMENT:
   //  achievementsChange is the dynamic input state when we write in WorkSection
@@ -39,40 +48,61 @@ function App() {
 
 
 
-
-
-
-
-
   // Handler functions for preserving input state
 
   function handleFirstNameChange(e) {
-    setFirstName(e.target.value)
+    setFirstName(e.target.value);
   }
-
   function handleLastNameChange(e) {
-    setLastName(e.target.value)
+    setLastName(e.target.value);
   }
-
   function handleEmailChange(e) {
-    setEmailChange(e.target.value)
+    setEmailChange(e.target.value);
+  }
+  function handlePhoneChange(e) {
+    setPhoneChange(e.target.value);
   }
 
-  function handlePhoneChange(e) {
-    setPhoneChange(e.target.value)
-  }
 
   function handleJobTitleChange(e) {
-    setJobChangeTitle(e.target.value)
+    setJobChangeTitle(e.target.value);
   }
-
   function handleCompanyTitleChange(e) {
     setCompanyTitle(e.target.value);
   }
 
+
   function handleAchievementsChange(e) {
-    setAchievementsChange(e.target.value)
+    setAchievementsChange(e.target.value);
   }
+  function handleEducationAchievementChange(e) {
+    setEducationAchievementInput(e.target.value);
+  }
+
+
+  function handleStudyTitleChange(e) {
+    setStudyTitle(e.target.value);
+  }
+  function handleSchoolTitleChange(e) {
+    setSchoolTitle(e.target.value);
+  }
+
+
+  function handleDateStartJobChange(e) {
+    setDateStartJob(e.target.value)
+  }
+  function handleDateEndJobChange(e) {
+    setDateEndJob(e.target.value)
+  }
+
+
+  function handleDateStartStudyChange(e) {
+    setDateStartStudy(e.target.value);
+  }
+  function handleDateEndStudyChange(e) {
+    setDateEndStudy(e.target.value);
+  }
+
 
   return (
     <div>
@@ -115,13 +145,21 @@ function App() {
             companyTitle={companyTitle}
             handleCompanyTitleChange={handleCompanyTitleChange}
 
+            nextId={nextId}
 
             achievementsChange={achievementsChange}
+            setAchievementsChange={setAchievementsChange}
+
             handleAchievementsChange={handleAchievementsChange}
 
             setAchievementList={setAchievementList}
             achievementList={achievementList}
-            nextId={nextId}
+
+            dateStart={dateStartJob}
+            handleDateStartJobChange={handleDateStartJobChange}
+
+            dateEndJob={dateEndJob}
+            handleDateEndJobChange={handleDateEndJobChange}
           />
 
           <EducationSection
@@ -131,11 +169,36 @@ function App() {
             achievements="Achievements / Tasks"
             studyStartDate="Start Date"
             studyEndDate="End Date"
+
+            handleStudyTitleChange={handleStudyTitleChange}
+            studyTitle={studyTitle}
+
+            handleSchoolTitleChange={handleSchoolTitleChange}
+            schoolTitle={schoolTitle}
+
+            dateStart={dateStartJob}
+            handleDateStartJobChange={handleDateStartJobChange}
+
+
+            nextId={nextId}
+
+            educationAchievementInput={educationAchievementInput}
+            setEducationAchievementInput={setEducationAchievementInput}
+
+            handleEducationAchievementChange={handleEducationAchievementChange}
+
+            setEducationAchievementList={setEducationAchievementList}
+            educationAchievementList={educationAchievementList}
+
+            dateStartStudy={dateStartStudy}
+            handleDateStartStudyChange={handleDateStartStudyChange}
+
+            dateEndStudy={dateEndStudy}
+            handleDateEndStudyChange={handleDateEndStudyChange}
           />
         </div>
 
         <CvSection
-
           // Passing state from input 
           firstNameChange={firstName}
           lastNameChange={lastName}
@@ -144,12 +207,17 @@ function App() {
 
           jobChangeTitle={jobChangeTitle}
           companyTitle={companyTitle}
-          achievementsChange={achievementsChange}
-
-
           achievementList={achievementList}
 
+          studyTitle={studyTitle}
+          schoolTitle={schoolTitle}
+          educationAchievementList={educationAchievementList}
 
+          dateStartJob={dateStartJob}
+          dateEndJob={dateEndJob}
+
+          dateStartStudy={dateStartStudy}
+          dateEndStudy={dateEndStudy}
         />
 
 
