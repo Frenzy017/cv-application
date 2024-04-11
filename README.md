@@ -24,6 +24,6 @@ The goal of this repo is to practice the following skill sets:
 
 ## Screenshots
 
-> Normal View / Desktop Layout
+> Normal View / Desktop Layout (1980x1080 Viewport)
 
-![Screenshot Booking-Design](img\Desktop.png)
+![Screenshot CV-Application Design](cv-app/src/img/Desktop.png)
